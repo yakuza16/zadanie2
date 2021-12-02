@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
+:root {
+  font-size: 16px;
+}
+
+.heading {
+  width: 30%;
+  margin: 2rem auto;
+  padding: 0.7rem 0;
+  border-radius: 3rem;
+  user-select: none;
+  background-color: rgba(240, 230, 140, 0.568);
+  border: 0.5rem dashed gray;
+}
+
+.heading__header {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.form {
+  width: 20%;
+  min-height: 250px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(128, 128, 128, 0.15);
+}
+form label {
+  margin: 1rem auto;
+}
+
+.form__submit {
+  width: 50%;
+  margin: 1rem auto;
+  cursor: pointer;
+}

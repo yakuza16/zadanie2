@@ -4,16 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Zadanie 2 - formularze</title>
   </head>
   <body>
     <header class="heading">
-      <h1>Biblioteka książek</h1>
+      <h1 class="heading__header">Biblioteka książek</h1>
     </header>
     <section>
-      <form>
-        <input type="text" name="title" />
+      <form class="form">
         <label for="title">Tytuł książki</label>
+        <input
+          class="form__book-title"
+          type="text"
+          name="title"
+          id="title"
+          minlength="1"
+          required
+          placeholder="tytuł"
+        />
+        <label for="author">Autor</label>
+        <input
+          class="form__book-author"
+          type="text"
+          name="author"
+          id="author"
+          minlength="3"
+          required
+          placeholder="autor"
+        />
+        <label for="priority">Priorytet przeczytania</label>
+        <input
+          class="form__book-priority"
+          type="number"
+          name="priority"
+          id="priority"
+          min="1"
+          max="5"
+          required
+          placeholder="prio"
+        />
+        <label for="categories">Kategorie</label>
+        <select name="categories" id="categories" class="form__book-category">
+          <option value="criminal">Kryminał</option>
+          <option value="thriller">Thriller</option>
+          <option value="horror">Horror</option>
+        </select>
+
+        <button type="submit" class="form__submit">Dodaj książkę</button>
       </form>
     </section>
     <script src="./index.js"></script>
