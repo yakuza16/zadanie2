@@ -11,7 +11,7 @@
     <header class="heading">
       <h1 class="heading__header">Biblioteka książek</h1>
     </header>
-    <section>
+    <section class="form-wrapper">
       <form class="form">
         <label for="title">Tytuł książki</label>
         <input
@@ -46,13 +46,28 @@
         />
         <label for="categories">Kategorie</label>
         <select name="categories" id="categories" class="form__book-category">
-          <option value="criminal">Kryminał</option>
-          <option value="thriller">Thriller</option>
-          <option value="horror">Horror</option>
+          <optgroup label="Wybierz kategorię">
+            <option value="kryminał">Kryminał</option>
+            <option value="thriller">Thriller</option>
+            <option value="horror">Horror</option>
+          </optgroup>
         </select>
 
-        <button type="submit" class="form__submit">Dodaj książkę</button>
+        <button type="submit" class="form__submit" id="add">
+          Dodaj książkę
+        </button>
       </form>
+    </section>
+    <section class="table-wrapper">
+      <table class="table">
+        <tr class="table__head-row">
+          <th>LP</th>
+          <th>Tytuł</th>
+          <th>Autor</th>
+          <th>Priorytet</th>
+          <th>Kategoria</th>
+        </tr>
+      </table>
     </section>
     <script src="./index.js"></script>
   </body>
