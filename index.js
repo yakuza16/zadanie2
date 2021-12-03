@@ -34,27 +34,14 @@ const createNewBook = (e) => {
 
 const newBooksRow = (num, title, author, priority, category) => {
   const newBookRow = document.createElement("tr")
-  const numColumn = document.createElement("td")
-  const titleColumn = document.createElement("td")
-  const authorColumn = document.createElement("td")
-  const prioColumn = document.createElement("td")
-  const categoryColumn = document.createElement("td")
 
-  numColumn.textContent = num
-  titleColumn.textContent = title
-  authorColumn.textContent = author
-  prioColumn.textContent = priority
-  categoryColumn.textContent = category
-
-  const bookColumn = [
-    numColumn,
-    titleColumn,
-    authorColumn,
-    prioColumn,
-    categoryColumn,
-  ]
-
-  bookColumn.forEach((item) => newBookRow.appendChild(item))
+  newBookRow.innerHTML = `
+  <td>${num}</td>
+  <td>${title}</td>
+  <td>${author}</td>
+  <td>${priority}</td>
+  <td>${category}</td>
+  `
   table.appendChild(newBookRow)
 }
 
