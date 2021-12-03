@@ -5,9 +5,21 @@ const category = document.getElementById("categories");
 const title = document.getElementById("title");
 const addNewBookBtn = document.getElementById("add");
 
-const getStoragedBook = () => JSON.parse(localStorage.getItem("books"));
+const isBook = (author) => {
+  return author !== null;
+};
 
-const books = [...getStoragedBook()];
+const getStoragedBooks = () => {
+  const storagedBooks = [];
+  for (item in localStorage) {
+    storagedBooks.push(JSON.parse(localStorage.getItem(item)));
+  }
+  const filteredBooks = storagedBooks.filter(isBook);
+
+  return filteredBooks;
+};
+
+const books = [...getStoragedBooks()];
 
 const createNewBook = (e) => {
   e.preventDefault();
@@ -18,12 +30,12 @@ const createNewBook = (e) => {
     const book = {
       title: title.value.trim(),
       author: author.value.trim(),
-      prio: prio.value > 5 ? 5 : 5,
+      priority: prio.value > 5 ? 5 : prio.value,
       category: category.value,
     };
     books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
-    newBooksRow(book.title, book.author, book.prio, book.category);
+    localStorage.setItem(`book${book.title}`, JSON.stringify(book));
+    newBooksRow(book.title, book.author, book.priority, book.category);
     title.value = "";
     prio.value = "";
     author.value = "";
@@ -44,9 +56,12 @@ const newBooksRow = (title, author, priority, category) => {
 
 addNewBookBtn.addEventListener("click", (e) => createNewBook(e));
 
+getStoragedBooks();
+
 window.addEventListener("DOMContentLoaded", () => {
-  books.forEach((book) =>
-    newBooksRow(book.title, book.author, book.prority, book.category)
-  );
-  console.log(books);
+  getStoragedBooks();
+  books.forEach((book) => {
+    const { title, author, priority, category } = book;
+    newBooksRow(title, author, priority, category);
+  });
 });
