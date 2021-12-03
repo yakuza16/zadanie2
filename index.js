@@ -15,12 +15,13 @@ const createNewBook = (e) => {
   } else {
     const book = {
       number: books.length === 0 ? 1 : books.length + 1,
-      title: title.value,
-      author: author.value,
+      title: title.value.trim(),
+      author: author.value.trim(),
       prio: prio.value,
       category: category.value,
     }
     books.push(book)
+    localStorage.setItem(`book${book.number}`, JSON.stringify(book))
 
     title.value = ""
     prio.value = ""
