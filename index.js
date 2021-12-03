@@ -30,7 +30,7 @@ const createNewBook = (e) => {
     const book = {
       title: title.value.trim(),
       author: author.value.trim(),
-      priority: prio.value > 5 ? 5 : prio.value,
+      priority: prio.value > 5 ? 5 : prio.value < 1 ? 1 : prio.value,
       category: category.value,
     };
     books.push(book);
