@@ -3,7 +3,7 @@ const author = document.getElementById("author");
 const prio = document.getElementById("priority");
 const category = document.getElementById("categories");
 const title = document.getElementById("title");
-const addNewBookBtn = document.getElementById("add");
+const form = document.getElementById("form");
 
 const isBook = (author) => {
   return author !== null;
@@ -54,7 +54,7 @@ const newBooksRow = (title, author, priority, category) => {
   table.appendChild(newBookRow);
 };
 
-addNewBookBtn.addEventListener("click", (e) => createNewBook(e));
+form.addEventListener("submit", (e) => createNewBook(e), false);
 
 getStoragedBooks();
 
